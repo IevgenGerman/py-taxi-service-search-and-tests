@@ -1,13 +1,14 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-
 from taxi.models import Manufacturer
 
 
 class ModelTest(TestCase):
     def test_manufacturer_str(self):
         manufacturer = Manufacturer.objects.create(
-            name="Toyota", country="Japan")
+            name="Toyota",
+            country="Japan"
+        )
         self.assertEqual(str(manufacturer), "Toyota Japan")
 
     def test_driver_str(self):
@@ -20,6 +21,4 @@ class ModelTest(TestCase):
         )
         self.assertEqual(
             str(driver),
-            f"{driver.username} "
-            f"({driver.first_name} {driver.last_name})"
-        )
+            f"{driver.username} ({driver.first_name} {driver.last_name})")
